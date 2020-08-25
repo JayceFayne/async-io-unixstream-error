@@ -1,0 +1,10 @@
+[package]
+name = "async-io-unixstream-error"
+version = "0.1.0"
+authors = ["Jayce Fayne <jayce.fayne@mailbox.org>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+async-io  = { git = "https://github.com/stjepang/async-io", branch = "fix-unix-connect" }
+futures-lite = "0.1"
