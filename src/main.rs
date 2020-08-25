@@ -1,25 +1,14 @@
-use async_io::Async;
-use futures_lite::future;
-use std::io::Write;
-use std::os::unix::net::UnixStream;
-use std::thread;
+use async_std::os::unix::net::UnixStream;
+use async_std::prelude::*;
 
-fn main() {
-    let mut handles = Vec::new();
-    for _ in 1..100 {
-        let handle = thread::spawn(|| {
-            future::block_on(async {
-                Async::<UnixStream>::connect("/run/user/1000/sway-ipc.1000.871.sock")
-                    .await?
-                    .write_with_mut(|io| io.write(&[]))
-                    .await
-            })
-        });
-        handles.push(handle);
-    }
-    for handle in handles {
-        if let Err(error) = handle.join().unwrap() {
-            println!("{:?}", error)
-        }
+#[async_std::main]
+async fn main() {
+    for _ in 1..100_000 {
+        UnixStream::connect("/run/user/1000/sway-ipc.1000.871.sock")
+            .await
+            .unwrap()
+            .write(&[])
+            .await
+            .unwrap();
     }
 }
