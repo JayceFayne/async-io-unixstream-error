@@ -11,11 +11,12 @@ dependencies = [
 
 [[package]]
 name = "async-io"
-version = "0.1.11"
-source = "git+https://github.com/stjepang/async-io#efaac5dc4cc4c005590fa45a329ca605c9c020d5"
+version = "0.2.3"
+source = "git+https://github.com/JayceFayne/async-io?branch=fail-fast#8100926fbcd601578ce2b2e86f03aba2e7fd3e27"
 dependencies = [
  "cfg-if",
  "concurrent-queue",
+ "fastrand",
  "futures-lite",
  "libc",
  "once_cell",
@@ -23,6 +24,7 @@ dependencies = [
  "polling",
  "socket2",
  "vec-arena",
+ "waker-fn",
  "wepoll-sys-stjepang",
  "winapi 0.3.9",
 ]
@@ -219,9 +221,9 @@ checksum = "de27142b013a8e869c14957e6d2edeef89e97c289e69d042ee3a49acd8b51789"
 
 [[package]]
 name = "futures-lite"
-version = "0.1.11"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97999970129b808f0ccba93211201d431fcc12d7e1ffae03a61b5cedd1a7ced2"
+checksum = "5dfd8ccee4974dccf68838bb2b9c90439238090061c82454af83866ac059eb9f"
 dependencies = [
  "fastrand",
  "futures-core",
@@ -505,9 +507,9 @@ checksum = "8cb18268690309760d59ee1a9b21132c126ba384f374c59a94db4bc03adeb561"
 
 [[package]]
 name = "waker-fn"
-version = "1.0.0"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9571542c2ce85ce642e6b58b3364da2fb53526360dfb7c211add4f5c23105ff7"
+checksum = "9d5b2c62b4012a3e1eca5a7e077d13b3bf498c4073e33ccd58626607748ceeca"
 
 [[package]]
 name = "wepoll-sys-stjepang"
